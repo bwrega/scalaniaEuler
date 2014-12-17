@@ -1,0 +1,16 @@
+# Created by .gitignore support plugin (hsz.mobi)
+### Scala template
+*.log
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+
