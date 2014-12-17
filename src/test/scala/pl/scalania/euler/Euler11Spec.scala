@@ -12,7 +12,7 @@ class Euler11Spec extends FlatSpec with MustMatchers {
     val grid = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("grid.txt")).getLines().map { line => line.split("\\s+").map(_.toInt)}.toArray
     grid.foreach(row => println(s"${Arrays.toString(row)}"))
     val result = Euler11.largestProductInGrid(grid)
-    assert(result == 3)
+    assert(result == 70600674)
   }
 
 
