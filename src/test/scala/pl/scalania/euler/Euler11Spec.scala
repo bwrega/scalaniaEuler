@@ -15,5 +15,11 @@ class Euler11Spec extends FlatSpec with MustMatchers {
     assert(result == 3)
   }
 
+  "Grid of ones " should "be " in {
+    val ones: Array[Array[Int]] = Array.fill(4,4)(1)
+    ones(0).product
+    val maxProduct = Euler11.largestProductInGrid(ones)
+    assert(maxProduct == 1)
+  }
 
 }
