@@ -12,7 +12,7 @@ scalacOptions in Global ++= Seq("-deprecation", "-unchecked", "-feature","-Yrang
 
 val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0"
 
-val scalacheck = "org.scalacheck" %% "scalacheck" % "1.11.6"
+val scalacheck = "org.scalacheck" %% "scalacheck" % "1.12.1"
 
 libraryDependencies in Global ++= Seq(
   scalaLogging,
