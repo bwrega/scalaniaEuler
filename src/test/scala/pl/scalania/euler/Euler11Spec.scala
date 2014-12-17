@@ -1,21 +1,21 @@
 package pl.scalania.euler
 
-import org.scalatest.{FlatSpec, MustMatchers}
-
 import scala.io.Source
 
-class Euler11Spec extends FlatSpec with MustMatchers {
+class Euler11Spec extends AbstractSpec {
 
   val grid = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("grid.txt")).getLines().map { line => line.split("\\s+").map(_.toInt)}.toArray
 
-  "Largest product in a grid " should "be " in {
-    val result = Euler11.largestProductInGrid(grid,4)
-    assert(result == 70600674)
-  }
+  "Largest product in a grid " should {
+    "be for 4 numbers" in {
+      val result = Euler11.largestProductInGrid(grid, 4)
+      result should be (70600674)
+    }
 
-  "Largest number in a grid " should "be " in {
-    val result = Euler11.largestProductInGrid(grid,1)
-    assert(result == 99)
+    "be for 1 number" in {
+      val result = Euler11.largestProductInGrid(grid, 1)
+      result should be (99)
+    }
   }
 
 
