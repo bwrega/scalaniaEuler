@@ -17,7 +17,7 @@ val scalacheck = "org.scalacheck" %% "scalacheck" % "1.12.1"
 libraryDependencies in Global ++= Seq(
   scalaLogging,
   scalacheck % "test",
-  "org.scalatest" %% "scalatest" % "2.2.2" % "test",
+  "org.scalatest" %% "scalatest" % "2.2.3" % "test",
   "ch.qos.logback" % "logback-classic" % "1.1.2"
 )
 
