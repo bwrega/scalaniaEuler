@@ -22,5 +22,8 @@ libraryDependencies in Global ++= Seq(
 )
 
 
+scalariformSettings
+
+
 
 
