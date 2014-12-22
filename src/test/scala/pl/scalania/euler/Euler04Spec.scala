@@ -10,7 +10,7 @@ class Euler04Spec extends AbstractSpec {
 
     "be for 3 digits numbers" in {
       val result = Euler04.largestPalindrome(3)
-      result should be(580085)
+      result should be(906609)
     }
   }
 
