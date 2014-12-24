@@ -21,10 +21,7 @@ object Euler11 {
           }
         })._1
       }
-       val ret: List[List[Int]] = grid.tails.flatMap(diagonalsFromFirstRow).toList
-//      val ret: List[List[Int]] =  diagonalsFromFirstRow(grid)
-//      println(ret)
-      ret
+      grid.tails.flatMap(diagonalsFromFirstRow).toList
     }
     val pHorizontal: Array[Int] = grid.flatMap(productsForRow)
     val pVertical: Array[Int] = grid.transpose.flatMap(productsForRow)
