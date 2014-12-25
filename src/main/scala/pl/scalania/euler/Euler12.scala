@@ -2,15 +2,13 @@ package pl.scalania.euler
 
 object Euler12 {
   def allFactors(l: Long):List[Long] = {
-    List(22)
+    List(1)
   }
 
-  def triangles: Stream[Long] = {
-
-    def trianglesRec(currentI:Long, previousSum:Long):Stream[Long] = {
-      val newSum = previousSum + currentI
-      Stream.cons(newSum, trianglesRec(currentI + 1, newSum))
+  def triangles: Iterator[Long] = {
+    def trianglesProduces( i_sum:(Long, Long) ) : (Long, Long)  = i_sum match {
+      case (i, sum) => (i+1L, sum+i+1L)
     }
-    trianglesRec(1L, 0L)
+    Iterator.iterate((1L,1L))(trianglesProduces).map(_._2)
   }
 }
