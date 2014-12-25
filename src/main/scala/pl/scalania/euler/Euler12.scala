@@ -1,5 +1,7 @@
 package pl.scalania.euler
 
+import scala.annotation.tailrec
+
 object Euler12 {
   def atLeastNFactors(i: Int): Long = {
     triangles.dropWhile(countFactors(_) < i).next()
@@ -7,19 +9,20 @@ object Euler12 {
 
   def countFactors(l: Long): Int = {
     val sqrt = Math.sqrt(l).toLong
-    def factorsToRoot(i: Long): Int = {
+    @tailrec
+    def factorsToRoot(i: Long, acc: Int): Int = {
       if (i > sqrt)
-        0
+        acc
       else
-        factorsToRoot(i + 1) + {
+        factorsToRoot(i + 1, acc + {
           if ((l % i) == 0)
             1
           else
             0
-        }
+        })
     }
     def squareFix() = if (sqrt * sqrt == l) 1 else 0
-    factorsToRoot(1) * 2 - squareFix()
+    factorsToRoot(1, 0) * 2 - squareFix()
   }
 
   def triangles: Iterator[Long] = {
