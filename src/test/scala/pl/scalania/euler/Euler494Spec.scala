@@ -41,48 +41,64 @@ class Euler494Spec extends FlatSpec with MustMatchers {
     assert(Euler494.prefix(8L) === List())
   }
 
-  val limit: Int = 100000
+  val limit: Int = 10000
   "Families for length 6 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(6, limit)
+    gatherStats(6)
+  }
+
+  def gatherStats(familyLength: Int) {
+    val stats: Stats = Euler494.collectFamilies(familyLength, limit)
     println("forwards: ")
-    stats.forwards.foreach(println)
+    stats.forwards.foreach((p) => {
+      println(p._1)
+      p._2.foreach(v => println(v + ": " + (v.last * 3 + 1)))
+      println()
+    })
   }
 
   "Families for length 5 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(5, limit)
-    println("forwards: ")
-    stats.forwards.foreach(println)
+    gatherStats(5)
   }
 
   "Families for length 4 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(4, limit)
-    println("forwards: ")
-    stats.forwards.foreach(println)
+    gatherStats(4)
   }
 
   "Families for length 3 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(3, limit)
-    println("forwards: ")
-    stats.forwards.foreach(println)
+    gatherStats(3)
   }
+
   "Families for length 2 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(2, limit)
-    println("forwards: ")
-    stats.forwards.foreach(println)
+    gatherStats(2)
   }
+
   "Families for length 1 " should " be ???" in {
-    val stats: Stats = Euler494.collectFamilies(1, limit)
-    println("forwards: ")
-    stats.forwards.foreach(println)
+    gatherStats(1)
   }
 
-//  "Families for length 10 " should " be ???" in {
-//    val stats: Stats = Euler494.collectFamilies(10, 1000000)
-//    println("forwards: size: " + stats.forwards.size)
-//    stats.forwards.foreach(println)
-//  }
+  "Paths for 16 with length 5" should " exist 3" in {
+    assert(Euler494.countPaths(16L, 5) === 3)
+  }
 
-//  "to million" should " take some memory " in {
-//    Range.Long.inclusive(1, 1000000, 1).map(Euler494.collatz).filter(_.length>2000)
-//  }
+  "Paths for 262144 with length 2" should " exist 1" in {
+    assert(Euler494.countPaths(262144L, 2) === 1)
+  }
+
+  "Paths for 65536 with length 6" should " exist 4" in {
+    assert(Euler494.countPaths(65536, 6) === 4)
+  }
+
+  "Paths for 256 with length 6" should " exist 4" in {
+    assert(Euler494.countPaths(256, 6) === 4)
+  }
+
+  //  "Families for length 10 " should " be ???" in {
+  //    val stats: Stats = Euler494.collectFamilies(10, 1000000)
+  //    println("forwards: size: " + stats.forwards.size)
+  //    stats.forwards.foreach(println)
+  //  }
+
+  //  "to million" should " take some memory " in {
+  //    Range.Long.inclusive(1, 1000000, 1).map(Euler494.collatz).filter(_.length>2000)
+  //  }
 }
