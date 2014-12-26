@@ -4,3 +4,4 @@ import pl.scalania.euler.Collatz
 //ones(0).product
 
 Collatz.collatz(112).force
+BigInt(2) * 2L
