@@ -50,7 +50,8 @@ class Euler494SSpec extends FlatSpec with MustMatchers {
   }
 
   "for length 20 " should " exist 6771 families " in {
-    assert(Euler494S.countFamilies(20) === 6771)
+    val families: Int = Euler494S.countFamilies(20)
+    assert(families === 6771)
   }
 
 }
