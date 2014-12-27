@@ -2,15 +2,20 @@ package pl.scalania.euler.euler494
 
 object Euler494Gen {
   def count(length: Int): Long = {
-    def countRec(length: Int): Long = {
-      if (length == 0)
-        1L
-      else if (length == 1)
-        2L
-      else
-        countRec(length - 1) + countRec(length - 2)
+    def countRec(length: Int, ups: Int, downs: Int): Long = {
+      if (length == 1)
+        ups+downs
+      else {
+        val newUps: Int = downs
+        val newDowns: Int = downs + ups
+        countRec(length-1, newUps, newDowns)
+      }
+//        planned.head * countRec(length - 1, sumElems(List(3, 1), planned))
     }
-    countRec(length - 2)
+    if (length<3)
+      1
+    else
+      countRec(length - 2, 1, 1)
   }
 
   def generate(length: Int): Set[String] = {
@@ -28,6 +33,10 @@ object Euler494Gen {
         }
     }
     generateRec(length - 2).map("ud" + _)
+  }
+
+  def sumElems(l1: List[Int], l2: List[Int]): List[Int] = {
+    (l1++List.fill(l2.size-l1.size)(0), l2++List.fill(l1.size-l2.size)(0)).zipped.map(_ + _)
   }
 
 }

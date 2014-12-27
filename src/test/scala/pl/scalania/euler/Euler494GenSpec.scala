@@ -2,6 +2,7 @@ package pl.scalania.euler
 
 import org.scalatest.{MustMatchers, FlatSpec}
 import pl.scalania.euler.euler494.Euler494Gen
+import pl.scalania.euler.euler494.Euler494Gen.sumElems
 
 class Euler494GenSpec extends FlatSpec with MustMatchers {
 
@@ -21,6 +22,14 @@ class Euler494GenSpec extends FlatSpec with MustMatchers {
     assert(Euler494Gen.generate(5).toList.sorted === Set("udddd", "udddu", "uddud", "ududd", "ududu").toList.sorted)
   }
 
+  "learning: sum of elememts of List(1, 2, 3) and List(1, 2)" should "return (2,4,3)" in {
+    assert(sumElems(List(1, 2, 3), List(1, 2)) === List(2, 4, 3))
+  }
+
+  "learning: sum of elememts of List(1, 2) and List(1, 2, 3)" should "return (2,4,3)" in {
+    assert(sumElems(List(1, 2), List(1, 2, 3)) === List(2, 4, 3))
+  }
+
   "count(2) " should "return 1" in {
     assert(Euler494Gen.count(2) === 1)
   }
@@ -29,7 +38,7 @@ class Euler494GenSpec extends FlatSpec with MustMatchers {
     assert(Euler494Gen.count(3) === 2)
   }
 
-  "count(4) " should "return 3" in {
+  "count(4) " should "return 3 (uddd, udud, uddu)" in {
     assert(Euler494Gen.count(4) === 3)
   }
 
@@ -48,5 +57,7 @@ class Euler494GenSpec extends FlatSpec with MustMatchers {
   "count(90) " should "return 6771" in {
     assert(Euler494Gen.count(90) === 6771)
   }
+
+
 
 }
