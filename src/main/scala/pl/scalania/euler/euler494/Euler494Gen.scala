@@ -1,13 +1,13 @@
 package pl.scalania.euler.euler494
 
 object Euler494Gen {
-  def count(length: Int): Long = {
-    def countRec(length: Int, ups: Int, downs: Int): Long = {
+  def count(length: Int): BigInt = {
+    def countRec(length: Int, ups: BigInt, downs: BigInt): BigInt = {
       if (length == 1)
         ups+downs
       else {
-        val newUps: Int = downs
-        val newDowns: Int = downs + ups
+        val newUps: BigInt = downs
+        val newDowns: BigInt = downs + ups
         countRec(length-1, newUps, newDowns)
       }
 //        planned.head * countRec(length - 1, sumElems(List(3, 1), planned))

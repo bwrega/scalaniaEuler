@@ -50,12 +50,13 @@ class Euler494GenSpec extends FlatSpec with MustMatchers {
     assert(Euler494Gen.count(10) === 55)
   }
 
-//  "count(20) " should "return 6771" in {
-//    assert(Euler494Gen.count(20) === 6771)
-//  }
+  "count(20) " should "return 6771" in {
+    assert(Euler494Gen.count(20) === 6771)
+  }
 
-  "count(90) " should "return 6771" in {
-    assert(Euler494Gen.count(90) === 6771)
+  "count(90) " should "return ?" in {
+
+    println("Euler494 solution: "+Euler494Gen.count(90))
   }
 
 
