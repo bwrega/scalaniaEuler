@@ -2,11 +2,10 @@ package pl.scalania.euler
 
 import org.scalatest.{FlatSpec, MustMatchers}
 
-import scala.io.Source
-
 class Euler11Spec extends FlatSpec with MustMatchers {
   "Largest product in a grid " should "be ?" in {
-    val grid = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("grid.txt")).getLines().map { line => line.split("\\s+").map(_.toInt)}.toArray
+    val file: String = "grid.txt"
+    val grid = NumberReader.readIntsFromFile(file).toArray
 //    grid.foreach(row => println(s"${util.Arrays.toString(row)}"))
     val result = Euler11.largestProductInGrid(grid)
     println("Euler 11: largest product in a grid" + result)
