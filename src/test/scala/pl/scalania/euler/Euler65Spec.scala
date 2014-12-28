@@ -1,6 +1,7 @@
 package pl.scalania.euler
 
 import org.scalatest.{FlatSpec, MustMatchers}
+import pl.scalania.euler.Implicits.MyBigInt
 
 class Euler65Spec extends FlatSpec with MustMatchers {
 
@@ -47,11 +48,8 @@ class Euler65Spec extends FlatSpec with MustMatchers {
     assert(Euler65.convergentE(10) === Frac(1457, 536))
   }
 
-  def sumOfDigits(n: BigInt):BigInt = {
-    n.toString().toList.map(_.toString).map(BigInt(_)).foldLeft(BigInt(0))(_ + _)
-  }
   "Euler65 solution" should "be ???" in {
     val n: BigInt = Euler65.convergentE(100).n
-    println("Euler65 solution is: " + sumOfDigits(n))
+    println("Euler65 solution is: " + n.sumOfDigits)
   }
 }
