@@ -10,7 +10,7 @@ class Euler01Spec extends AbstractSpec {
 
     "Multiples of 3 and 5 below 1000" in {
       val result = Euler01.multipliesSum(3, 5, 1000)
-      result should be(???.asInstanceOf[Long])
+      result should be(233168)
     }
   }
 

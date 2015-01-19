@@ -4,7 +4,7 @@ organization in Global := "pl.scalania"
 
 version in Global := "0.1"
 
-scalaVersion in Global := "2.11.4"
+scalaVersion in Global := "2.11.5"
 
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature","-Yrangepos")
 

@@ -10,7 +10,6 @@ class Euler02Spec extends AbstractSpec {
 
     s"Sum of even Fibonacci numbers below $TEN" in {
       val result = Euler02.sumOfTheEvenValuedFibonacciTermsLessThan(TEN)
-      val expected: Long = ???
       result should be(19)
     }
 
