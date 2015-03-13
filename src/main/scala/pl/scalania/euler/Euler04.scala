@@ -9,7 +9,7 @@ object Euler04 {
     allPalindromes(wholeRange).max
   }
 
-  def allPalindromes(wholeRange: Inclusive[Long]):IndexedSeq[Long] =
+  private def allPalindromes(wholeRange: Inclusive[Long]):IndexedSeq[Long] =
     for {
       x <- wholeRange
       y <- wholeRange.dropWhile(_<x)

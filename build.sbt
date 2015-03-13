@@ -9,6 +9,7 @@ scalaVersion in Global := "2.11.5"
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature","-Yrangepos")
 
 scalacOptions in Global ++= Seq("-deprecation", "-unchecked", "-feature","-Yrangepos")
+scalacOptions in Global ++= Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0"
 
@@ -21,6 +22,21 @@ libraryDependencies in Global ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.1.2"
 )
 
+libraryDependencies in Global ++= {
+  val akkaV = "2.3.6"
+  val sprayV = "1.3.2"
+  Seq(
+    "io.spray"            %%  "spray-can"     % sprayV,
+    "io.spray"            %%  "spray-routing" % sprayV,
+    "io.spray"            %%  "spray-testkit" % sprayV  % "test",
+    "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
+    "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
+    "org.specs2"          %%  "specs2-core"   % "2.3.11" % "test"
+  )
+}
 
+libraryDependencies in Global += "io.spray" %%  "spray-json" % "1.3.1"
+
+Seq(jrebelSettings: _*)
 
 
